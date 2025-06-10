@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Layout from './Layout';
-import { routeArray, detailRoutes } from './config/routes';
+import { routeArray, detailRoutes } from '@/config/routes';
 
 function App() {
   return (

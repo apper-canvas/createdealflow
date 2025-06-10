@@ -1,13 +1,19 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import ApperIcon from './ApperIcon';
-import companyService from '../services/api/companyService';
-import contactService from '../services/api/contactService';
-import dealService from '../services/api/dealService';
+import ApperIcon from '@/components/ApperIcon';
+import Heading from '@/components/atoms/Heading';
+import Paragraph from '@/components/atoms/Paragraph';
+import StatCard from '@/components/molecules/StatCard';
+import ActionButton from '@/components/molecules/ActionButton';
+import Card from '@/components/molecules/Card';
 
-const MainFeature = () => {
+import companyService from '@/services/api/companyService';
+import contactService from '@/services/api/contactService';
+import dealService from '@/services/api/dealService';
+import LoadingSpinner from '@/components/molecules/LoadingSpinner';
+
+const HomePage = () => {
   const [stats, setStats] = useState({
     companies: 0,
     contacts: 0,
@@ -47,7 +53,7 @@ const MainFeature = () => {
     loadStats();
   }, []);
 
-  const statCards = [
+  const statCardsData = [
     {
       label: 'Total Companies',
       value: stats.companies,
@@ -82,7 +88,7 @@ const MainFeature = () => {
     }
   ];
 
-  const quickActions = [
+  const quickActionsData = [
     {
       label: 'Add Company',
       icon: 'Plus',
@@ -111,17 +117,8 @@ const MainFeature = () => {
 
   if (loading) {
     return (
-      <div className="p-6 space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="bg-white rounded-lg p-6 shadow-sm">
-              <div className="animate-pulse space-y-4">
-                <div className="h-4 bg-surface-200 rounded w-3/4"></div>
-                <div className="h-8 bg-surface-200 rounded w-1/2"></div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="p-6">
+        <LoadingSpinner />
       </div>
     );
   }
@@ -130,67 +127,48 @@ const MainFeature = () => {
     <div className="p-6 space-y-8">
       {/* Welcome Section */}
       <div className="bg-gradient-primary rounded-xl p-6 text-white">
-        <h1 className="text-2xl font-heading font-bold mb-2">Welcome to DealFlow CRM</h1>
-        <p className="text-white/90">Manage your business relationships and track deals efficiently</p>
+        <Heading level={1} className="text-2xl mb-2">Welcome to DealFlow CRM</Heading>
+        <Paragraph className="text-white/90">Manage your business relationships and track deals efficiently</Paragraph>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {statCards.map((stat, index) => (
-          <motion.div
+        {statCardsData.map((stat, index) => (
+          <StatCard
             key={stat.label}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            whileHover={{ scale: 1.02 }}
+            label={stat.label}
+            value={stat.value}
+            icon={stat.icon}
+            color={stat.color}
+            bg={stat.bg}
             onClick={() => navigate(stat.path)}
-            className="bg-white rounded-lg p-6 shadow-sm cursor-pointer border border-surface-200 hover:shadow-md transition-shadow"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-surface-600 text-sm font-medium">{stat.label}</p>
-                <p className="text-2xl font-bold text-surface-900 mt-1">{stat.value}</p>
-              </div>
-              <div className={`w-12 h-12 ${stat.bg} rounded-lg flex items-center justify-center`}>
-                <ApperIcon name={stat.icon} size={24} className={stat.color} />
-              </div>
-            </div>
-          </motion.div>
+            delay={index * 0.1}
+          />
         ))}
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white rounded-lg p-6 shadow-sm border border-surface-200">
-        <h2 className="text-lg font-heading font-semibold text-surface-900 mb-4">Quick Actions</h2>
+      <Card>
+        <Heading level={2} className="text-lg mb-4">Quick Actions</Heading>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {quickActions.map((action, index) => (
-            <motion.button
+          {quickActionsData.map((action, index) => (
+            <ActionButton
               key={action.label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              label={action.label}
+              icon={action.icon}
+              color={action.color}
               onClick={action.action}
-              className={`${action.color} text-white p-4 rounded-lg flex flex-col items-center space-y-2 font-medium hover:shadow-lg transition-shadow`}
-            >
-              <ApperIcon name={action.icon} size={24} />
-              <span className="text-sm">{action.label}</span>
-            </motion.button>
+              delay={index * 0.1}
+            />
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* Recent Activity Section */}
-      <div className="bg-white rounded-lg p-6 shadow-sm border border-surface-200">
+      <Card>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-heading font-semibold text-surface-900">Recent Activity</h2>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="text-primary hover:text-primary/80 font-medium text-sm"
-          >
-            View All
-          </motion.button>
+          <Heading level={2} className="text-lg">Recent Activity</Heading>
+          <Button variant="ghost" className="text-sm">View All</Button>
         </div>
         <div className="space-y-3">
           <div className="flex items-center space-x-3 p-3 bg-surface-50 rounded-lg">
@@ -198,8 +176,8 @@ const MainFeature = () => {
               <ApperIcon name="CheckCircle" size={16} className="text-success" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-surface-900">Deal "Enterprise Software License" closed</p>
-              <p className="text-xs text-surface-500">2 hours ago</p>
+              <Paragraph className="text-sm font-medium text-surface-900">Deal "Enterprise Software License" closed</Paragraph>
+              <Paragraph className="text-xs text-surface-500">2 hours ago</Paragraph>
             </div>
           </div>
           <div className="flex items-center space-x-3 p-3 bg-surface-50 rounded-lg">
@@ -207,8 +185,8 @@ const MainFeature = () => {
               <ApperIcon name="UserPlus" size={16} className="text-primary" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-surface-900">New contact added: John Smith</p>
-              <p className="text-xs text-surface-500">4 hours ago</p>
+              <Paragraph className="text-sm font-medium text-surface-900">New contact added: John Smith</Paragraph>
+              <Paragraph className="text-xs text-surface-500">4 hours ago</Paragraph>
             </div>
           </div>
           <div className="flex items-center space-x-3 p-3 bg-surface-50 rounded-lg">
@@ -216,14 +194,14 @@ const MainFeature = () => {
               <ApperIcon name="Building2" size={16} className="text-secondary" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-surface-900">Company "TechCorp Solutions" updated</p>
-              <p className="text-xs text-surface-500">1 day ago</p>
+              <Paragraph className="text-sm font-medium text-surface-900">Company "TechCorp Solutions" updated</Paragraph>
+              <Paragraph className="text-xs text-surface-500">1 day ago</Paragraph>
             </div>
           </div>
         </div>
-      </div>
+      </Card>
     </div>
   );
 };
 
-export default MainFeature;
+export default HomePage;

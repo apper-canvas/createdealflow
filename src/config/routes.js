@@ -1,12 +1,12 @@
-import Home from '../pages/Home';
-import Companies from '../pages/Companies';
-import Contacts from '../pages/Contacts';
-import Deals from '../pages/Deals';
-import Pipeline from '../pages/Pipeline';
-import CompanyDetail from '../pages/CompanyDetail';
-import ContactDetail from '../pages/ContactDetail';
-import DealDetail from '../pages/DealDetail';
-import NotFound from '../pages/NotFound';
+import HomePage from '@/components/pages/HomePage';
+import CompaniesPage from '@/components/pages/CompaniesPage';
+import ContactsPage from '@/components/pages/ContactsPage';
+import DealsPage from '@/components/pages/DealsPage';
+import PipelinePage from '@/components/pages/PipelinePage';
+import CompanyDetailPage from '@/components/pages/CompanyDetailPage';
+import ContactDetailPage from '@/components/pages/ContactDetailPage';
+import DealDetailPage from '@/components/pages/DealDetailPage';
+import NotFoundPage from '@/components/pages/NotFoundPage';
 
 export const routes = {
   home: {
@@ -14,35 +14,35 @@ export const routes = {
     label: 'Dashboard',
     path: '/',
     icon: 'LayoutDashboard',
-    component: Home
+component: HomePage
   },
   companies: {
     id: 'companies',
     label: 'Companies',
     path: '/companies',
     icon: 'Building2',
-    component: Companies
+component: CompaniesPage
   },
   contacts: {
     id: 'contacts',
     label: 'Contacts',
     path: '/contacts',
     icon: 'Users',
-    component: Contacts
+component: ContactsPage
   },
   deals: {
     id: 'deals',
     label: 'Deals',
     path: '/deals',
     icon: 'DollarSign',
-    component: Deals
+component: DealsPage
   },
   pipeline: {
     id: 'pipeline',
     label: 'Pipeline',
     path: '/pipeline',
     icon: 'BarChart3',
-    component: Pipeline
+component: PipelinePage
   }
 };
 
@@ -51,18 +51,18 @@ export const routeArray = Object.values(routes);
 export const detailRoutes = [
   {
     path: '/companies/:id',
-    component: CompanyDetail
+component: CompanyDetailPage
   },
   {
     path: '/contacts/:id',
-    component: ContactDetail
+component: ContactDetailPage
   },
   {
     path: '/deals/:id',
-    component: DealDetail
+component: DealDetailPage
   },
   {
     path: '*',
-    component: NotFound
+component: NotFoundPage
   }
 ];
