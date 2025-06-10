@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "title": "Enterprise Software License",
+    "value": 250000,
+    "stage": "closed-won",
+    "companyId": "1",
+    "contactIds": ["1", "2"],
+    "notes": "Multi-year enterprise license deal with comprehensive support package. Client was impressed with our technical capabilities and security features.",
+    "createdAt": "2024-01-15T12:00:00Z",
+    "updatedAt": "2024-02-01T14:30:00Z",
+    "closedAt": "2024-02-01T14:30:00Z"
+  },
+  {
+    "id": "2",
+    "title": "HIPAA-Compliant Platform Implementation",
+    "value": 180000,
+    "stage": "negotiation",
+    "companyId": "2",
+    "contactIds": ["3", "7"],
+    "notes": "Healthcare platform with strict compliance requirements. Currently finalizing security audit and pricing discussions.",
+    "createdAt": "2024-01-20T16:00:00Z",
+    "updatedAt": "2024-02-15T11:15:00Z",
+    "closedAt": null
+  },
+  {
+    "id": "3",
+    "title": "Supply Chain Automation Suite",
+    "value": 450000,
+    "stage": "lead",
+    "companyId": "3",
+    "contactIds": ["4"],
+    "notes": "Large-scale manufacturing automation project. Budget has been approved, waiting for technical evaluation committee review.",
+    "createdAt": "2024-01-25T10:45:00Z",
+    "updatedAt": "2024-01-25T10:45:00Z",
+    "closedAt": null
+  },
+  {
+    "id": "4",
+    "title": "Financial Services Integration",
+    "value": 320000,
+    "stage": "negotiation",
+    "companyId": "4",
+    "contactIds": ["5"],
+    "notes": "API integration and compliance automation tools. Strong interest but need to address data sovereignty concerns.",
+    "createdAt": "2024-02-01T13:30:00Z",
+    "updatedAt": "2024-02-12T10:00:00Z",
+    "closedAt": null
+  },
+  {
+    "id": "5",
+    "title": "Educational Platform Licensing",
+    "value": 95000,
+    "stage": "closed-lost",
+    "companyId": "5",
+    "contactIds": ["6"],
+    "notes": "Non-profit educational platform deal. Lost to competitor due to budget constraints and timing issues.",
+    "createdAt": "2024-02-05T17:00:00Z",
+    "updatedAt": "2024-02-20T09:30:00Z",
+    "closedAt": "2024-02-20T09:30:00Z"
+  },
+  {
+    "id": "6",
+    "title": "Cloud Migration Services",
+    "value": 150000,
+    "stage": "lead",
+    "companyId": "1",
+    "contactIds": ["2"],
+    "notes": "Follow-up opportunity for cloud infrastructure migration. Building on successful relationship from previous deal.",
+    "createdAt": "2024-02-10T14:20:00Z",
+    "updatedAt": "2024-02-10T14:20:00Z",
+    "closedAt": null
+  }
+]

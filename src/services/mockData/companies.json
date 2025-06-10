@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "name": "TechCorp Solutions",
+    "industry": "Software Development",
+    "website": "https://techcorp.com",
+    "notes": "Leading enterprise software company specializing in cloud solutions. Key decision makers are technical and require detailed ROI analysis.",
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "id": "2",
+    "name": "Healthcare Innovations Inc",
+    "industry": "Healthcare Technology",
+    "website": "https://healthtech-innovations.com",
+    "notes": "Fast-growing healthtech startup focused on patient management systems. Strong interest in HIPAA-compliant solutions.",
+    "createdAt": "2024-01-20T14:15:00Z",
+    "updatedAt": "2024-01-20T14:15:00Z"
+  },
+  {
+    "id": "3",
+    "name": "Global Manufacturing Ltd",
+    "industry": "Manufacturing",
+    "website": "https://globalmanufacturing.com",
+    "notes": "Large manufacturing company looking to modernize their supply chain operations. Budget approval process takes 6-8 weeks.",
+    "createdAt": "2024-01-25T09:45:00Z",
+    "updatedAt": "2024-01-25T09:45:00Z"
+  },
+  {
+    "id": "4",
+    "name": "FinanceFlow Systems",
+    "industry": "Financial Services",
+    "website": "https://financeflow.com",
+    "notes": "Established financial services firm interested in automation tools. Security and compliance are top priorities.",
+    "createdAt": "2024-02-01T11:20:00Z",
+    "updatedAt": "2024-02-01T11:20:00Z"
+  },
+  {
+    "id": "5",
+    "name": "EduTech Dynamics",
+    "industry": "Education Technology",
+    "website": "https://edutech-dynamics.org",
+    "notes": "Non-profit organization developing educational platforms. Looking for cost-effective solutions with strong support.",
+    "createdAt": "2024-02-05T16:00:00Z",
+    "updatedAt": "2024-02-05T16:00:00Z"
+  }
+]
