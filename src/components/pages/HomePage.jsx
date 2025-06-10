@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import ApperIcon from '@/components/ApperIcon';
 import Heading from '@/components/atoms/Heading';
 import Paragraph from '@/components/atoms/Paragraph';
+import Button from '@/components/atoms/Button';
 import StatCard from '@/components/molecules/StatCard';
 import ActionButton from '@/components/molecules/ActionButton';
 import Card from '@/components/molecules/Card';
